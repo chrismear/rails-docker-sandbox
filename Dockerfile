@@ -79,11 +79,13 @@ WORKDIR /app
 
 # only copy gem dependencies needed to build image
 COPY Gemfile* ./
-RUN bundle install --jobs 4 --without staging production
+RUN bundle install --jobs 4 --without staging production \
+  && rm -rf /root/.bundle/cache /usr/local/bundle/cache
 
 # Yarn install
 COPY yarn.lock package.json  ./
-RUN yarn install
+RUN yarn install \
+  && rm -rf /tmp/* /usr/local/share/.cache/yarn
 
 # allow port and directory to be exported
 EXPOSE 3000
