@@ -1,0 +1,3 @@
+- name: rspec
+  service: app
+  command: bin/ci bin/rake spec

@@ -1,0 +1,7 @@
+#!/bin/sh
+# Usage: bin/ci [command]
+set -e
+
+bin/wait-for --timeout=300 db:3306
+time bin/rails db:setup
+time "$@"
