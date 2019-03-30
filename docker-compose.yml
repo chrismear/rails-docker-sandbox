@@ -16,6 +16,7 @@ services:
 
   app:
     build: .
+    image: chrismear/rails-docker-sandbox:latest
     depends_on:
       - db
     ports:
@@ -29,6 +30,7 @@ services:
 
   webpack_dev_server:
     build: .
+    image: chrismear/rails-docker-sandbox:latest
     # The symbolic link is a nasty hack made necessary because webpacker < 4.0
     # hardcodes the location of the Node binaries directory.
     command: sh -c "ln -sf /node_modules /app/node_modules && ./bin/webpack-dev-server"
