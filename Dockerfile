@@ -1,4 +1,4 @@
-FROM ruby:2.4.3 AS ruby
+FROM ruby:2.4.3-stretch
 
 # install dependencies for gems with c-extensions
 RUN apt-get update && \
