@@ -84,7 +84,7 @@ RUN bundle install --jobs 4 --without staging production \
 
 # Yarn install
 COPY yarn.lock package.json  ./
-RUN yarn install \
+RUN yarn install --modules-folder /node_modules \
   && rm -rf /tmp/* /usr/local/share/.cache/yarn
 
 # allow port and directory to be exported

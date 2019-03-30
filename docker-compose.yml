@@ -15,7 +15,9 @@ services:
 
   webpack_dev_server:
     build: .
-    command: ./bin/webpack-dev-server
+    # The symbolic link is a nasty hack made necessary because webpacker < 4.0
+    # hardcodes the location of the Node binaries directory.
+    command: sh -c "ln -sf /node_modules /app/node_modules && ./bin/webpack-dev-server"
     ports:
       - 3035:3035
     volumes:
