@@ -9,3 +9,7 @@ development: &dev
 test:
   <<: *dev
   database: <%= ENV.fetch("MYSQL_DATABASE", "sandbox_development") %>
+
+production:
+  <<: *dev
+  database: <%= ENV.fetch("MYSQL_DATABASE", "sandbox_production") %>
